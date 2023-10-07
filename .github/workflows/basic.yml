@@ -1,0 +1,13 @@
+name: Selenium Test workflow
+
+on: push
+
+jobs:
+  Selenium_Test_Jobs:
+    name: Selenium Test Jobs
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "test rodando no server" 
+  
+
