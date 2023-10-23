@@ -1,4 +1,4 @@
-name: Java CI
+name: Java CI with JUnit
 
 on:
   push:
@@ -24,3 +24,13 @@ jobs:
       - name: Build with Ant
         run: |
           ant -noinput -buildfile "Source Code Inspection/build.xml"
+
+      - name: Install Apache Ant
+        run: |
+          sudo apt-get update
+          sudo apt-get install ant
+
+      - name: Run JUnit Tests
+        run: |
+          ant -f "Source Code Inspection/build.xml" test
+
