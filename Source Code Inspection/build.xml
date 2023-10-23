@@ -10,6 +10,22 @@
 <project name="Source_Code_Inspection" default="default" basedir=".">
     <description>Builds, tests, and runs the project Source Code Inspection.</description>
     <import file="nbproject/build-impl.xml"/>
+
+    <!-- ... outras partes do build.xml ... -->
+
+    <target name="-post-compile-test">
+        <junit printsummary="on" fork="true">
+            <classpath>
+                <!-- Adicione aqui os caminhos para as classes de teste e as bibliotecas necessárias -->
+                <pathelement location="${build.test.classes.dir}"/>
+                <fileset dir="lib">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+            <formatter type="xml" usefile="true"/>
+            <test name="br.calebe.ticketmachine.core.TicketMachineTest"/>
+        </junit>
+    </target>
     <!--
 
     There exist several targets which are by default empty and which can be 
